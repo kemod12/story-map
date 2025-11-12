@@ -16,7 +16,7 @@ module.exports = {
   output: {
     filename: 'js/[name].[contenthash].js',
     path: path.resolve(__dirname, 'docs'),
-    publicPath: publicPath,
+    publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: true,
   },
@@ -53,7 +53,7 @@ module.exports = {
         useShortDoctype: true
       },
       base: publicPath,
-      publicPath: publicPath,
+      publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
     }),
     new CopyWebpackPlugin({
       patterns: [
