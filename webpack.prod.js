@@ -5,6 +5,16 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
+  plugins: [
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/*', '!CNAME', '!.nojekyll'],
+      cleanAfterEveryBuildPatterns: ['!assets/**/*'],
+      verbose: true,
+      dry: false,
+      cleanStaleWebpackAssets: true,
+      protectWebpackAssets: false
+    })
+  ],
   module: {
     rules: [
       {
