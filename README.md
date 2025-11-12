@@ -1,52 +1,79 @@
-# App Starter Project with Webpack
+# Story Map Application
 
-Proyek ini adalah setup dasar untuk aplikasi web yang menggunakan webpack untuk proses bundling, Babel untuk transpile JavaScript, serta mendukung proses build dan serving aplikasi.
+Aplikasi web untuk membuat dan melihat peta cerita interaktif menggunakan Leaflet.js.
 
-## Table of Contents
+## Daftar Isi
 
-- [Getting Started](#getting-started)
-- [Scripts](#scripts)
-- [Project Structure](#project-structure)
+- [Prasyarat](#prasyarat)
+- [Instalasi](#instalasi)
+- [Pengembangan](#pengembangan)
+- [Membangun untuk Produksi](#membangun-untuk-produksi)
+- [Deploy ke GitHub Pages](#deploy-ke-github-pages)
+- [Struktur Proyek](#struktur-proyek)
 
-## Getting Started
+## Prasyarat
 
-### Prerequisites
+- [Node.js](https://nodejs.org/) (versi 14 atau lebih tinggi)
+- [npm](https://www.npmjs.com/) (versi 6 atau lebih tinggi)
+- Akun GitHub
 
-- [Node.js](https://nodejs.org/) (disarankan versi 12 atau lebih tinggi)
-- [npm](https://www.npmjs.com/) (Node package manager)
+## Instalasi
 
-### Installation
+1. Clone repository ini:
+   ```bash
+   git clone https://github.com/hermo/story-map.git
+   cd story-map
+   ```
 
-1. Download starter project [di sini](https://raw.githubusercontent.com/dicodingacademy/a219-web-intermediate-labs/099-shared-files/starter-project-with-webpack.zip).
-2. Lakukan unzip file.
-3. Pasang seluruh dependencies dengan perintah berikut.
-   ```shell
+2. Pasang dependencies:
+   ```bash
    npm install
    ```
 
-## Scripts
+## Pengembangan
 
-- Build for Production:
-  ```shell
-  npm run build
-  ```
-  Script ini menjalankan webpack dalam mode production menggunakan konfigurasi `webpack.prod.js` dan menghasilkan sejumlah file build ke direktori `dist`.
+Untuk memulai server pengembangan:
+```bash
+npm start
+```
 
-- Start Development Server:
-  ```shell
-  npm run start-dev
-  ```
-  Script ini menjalankan server pengembangan webpack dengan fitur live reload dan mode development sesuai konfigurasi di`webpack.dev.js`.
+Aplikasi akan berjalan di `http://localhost:8080`
 
-- Serve:
-  ```shell
-  npm run serve
-  ```
-  Script ini menggunakan [`http-server`](https://www.npmjs.com/package/http-server) untuk menyajikan konten dari direktori `dist`.
+## Membangun untuk Produksi
 
-## Project Structure
+Untuk membuat build produksi:
+```bash
+npm run build
+```
 
-Proyek starter ini dirancang agar kode tetap modular dan terorganisir.
+File hasil build akan tersedia di direktori `dist`.
+
+## Deploy ke GitHub Pages
+
+1. Pastikan repository Anda sudah diinisialisasi dengan Git dan terhubung ke GitHub
+2. Pastikan nama repository adalah `story-map` (atau sesuaikan field `homepage` di `package.json`)
+3. Jalankan perintah deploy:
+   ```bash
+   npm run deploy
+   ```
+4. Aplikasi akan dideploy ke: https://hermo.github.io/story-map/
+
+## Struktur Proyek
+
+```
+src/
+├── scripts/         # File JavaScript
+├── styles/          # File CSS
+├── images/          # Aset gambar
+└── index.html       # File HTML utama
+dist/               # File hasil build (tergenerasi otomatis)
+public/             # File statis
+webpack/            # Konfigurasi webpack
+```
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah ISC License.
 
 ```text
 starter-project/
