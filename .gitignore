@@ -1,0 +1,8 @@
+# Directories
+.idea
+.vscode
+node_modules
+# dist (excluded so GitHub Actions can deploy it)
+
+# Files
+.env
