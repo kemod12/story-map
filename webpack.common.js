@@ -2,6 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+// Set public path for GitHub Pages
+const publicPath = process.env.NODE_ENV === 'production' 
+  ? '/story-map/'
+  : '/';
+
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -10,6 +15,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: publicPath,
   },
   module: {
     rules: [
@@ -39,6 +45,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
+      base: process.env.NODE_ENV === 'production' ? '/story-map/' : '/',
+      publicPath: process.env.NODE_ENV === 'production' ? '/story-map/' : '/',
     }),
     new CopyWebpackPlugin({
       patterns: [
